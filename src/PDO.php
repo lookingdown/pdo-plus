@@ -1,7 +1,7 @@
 <?php
 namespace Filisko\PDOplus;
 
-class PDO extends \PDO
+class PDO extends \Aura\Sql\ExtendedPdo
 {
     /**
      * Logged queries.
@@ -49,7 +49,7 @@ class PDO extends \PDO
     /**
      * @see \PDO::query
      */
-    public function query($statement)
+    public function query($statement, ...$fetch)
     {
         $start = microtime(true);
         $result = parent::query($statement);
