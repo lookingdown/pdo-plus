@@ -1,6 +1,6 @@
-# PDO plus
+# Fork of PDO plus for Aura.Sql
 
-PDO plus extends PDO in order to log all your queries. This package also includes a Bar Panel for Tracy, see the result below.
+PDO plus extends Aura.Sql in order to log all your queries. This package also includes a Bar Panel for Tracy, see the result below. (Will not work without Aura.sql loaded prior)
 
 ## Result
 ![PDO logger with Tracy](https://i.snag.gy/AbESVC.jpg "PDO logger with Tracy")
