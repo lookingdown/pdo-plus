@@ -57,6 +57,83 @@ class PDO extends \Aura\Sql\ExtendedPdo
         return $result;
     }
 
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchAffected
+     */
+    public function fetchAffected($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchAffected($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchAssoc
+     */
+	public function fetchAssoc($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchAssoc($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchCol
+     */
+	public function fetchCol($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchCol($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+	
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchGroup
+     */
+	public function fetchGroup($statement, array $values = [], $style = PDO::FETCH_COLUMN )
+    {
+        $start = microtime(true);
+        $result = parent::fetchGroup($statement, $values, $style);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+	
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchOne
+     */
+	public function fetchOne($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchOne($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }	
+
+	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchPairs
+     */
+	  public function fetchPairs($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchPairs($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+
+    /**
+     * @see \Aura\Sql\ExtendedPdo::fetchValue
+     */
+    public function fetchValue($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchValue($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+	
     /**
      * Add query to logged queries.
      * @param string $statement
