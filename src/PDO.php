@@ -69,6 +69,17 @@ class PDO extends \Aura\Sql\ExtendedPdo
     }
 
 	/**
+     * @see \Aura\Sql\ExtendedPdo::fetchAll
+     */ 
+	public function fetchAll($statement, array $values = [])
+    {
+        $start = microtime(true);
+        $result = parent::fetchAll($statement, $values);
+        $this->addLog($statement, microtime(true) - $start);
+        return $result;
+    }
+
+	/**
      * @see \Aura\Sql\ExtendedPdo::fetchAssoc
      */
 	public function fetchAssoc($statement, array $values = [])
